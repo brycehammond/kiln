@@ -25,6 +25,9 @@ import { registerScreenshot } from './tools/screenshot.js';
 import { registerPlayMode } from './tools/playMode.js';
 import { registerEditScript } from './tools/editScript.js';
 import { registerFocusGameObject } from './tools/focusGameObject.js';
+import { registerSetTransform } from './tools/setTransform.js';
+import { registerExplainScene } from './tools/explainScene.js';
+import { registerBuildProject } from './tools/buildProject.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -56,6 +59,9 @@ async function main(): Promise<void> {
   registerPlayMode(server, connection);
   registerEditScript(server, connection);
   registerFocusGameObject(server, connection);
+  registerSetTransform(server, connection);
+  registerExplainScene(server, connection);
+  registerBuildProject(server, connection);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();

@@ -61,6 +61,9 @@ namespace Kiln.MCP.Editor
             _router.RegisterTool(new ExitPlayModeTool());
             _router.RegisterTool(new EditScriptTool());
             _router.RegisterTool(new FocusGameObjectTool());
+            _router.RegisterTool(new SetTransformTool());
+            _router.RegisterTool(new ExplainSceneTool());
+            _router.RegisterTool(new BuildProjectTool());
         }
 
         public void Start()
