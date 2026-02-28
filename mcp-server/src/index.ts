@@ -28,6 +28,7 @@ import { registerFocusGameObject } from './tools/focusGameObject.js';
 import { registerSetTransform } from './tools/setTransform.js';
 import { registerExplainScene } from './tools/explainScene.js';
 import { registerBuildProject } from './tools/buildProject.js';
+import { registerCreateAnimation } from './tools/createAnimation.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -62,6 +63,7 @@ async function main(): Promise<void> {
   registerSetTransform(server, connection);
   registerExplainScene(server, connection);
   registerBuildProject(server, connection);
+  registerCreateAnimation(server, connection);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();

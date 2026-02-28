@@ -64,6 +64,7 @@ namespace Kiln.MCP.Editor
             _router.RegisterTool(new SetTransformTool());
             _router.RegisterTool(new ExplainSceneTool());
             _router.RegisterTool(new BuildProjectTool());
+            _router.RegisterTool(new CreateAnimationTool());
         }
 
         public void Start()
