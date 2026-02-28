@@ -155,6 +155,26 @@ class KilnWindow:
                 fg_color=theme.ACCENT,
             )
 
+    def set_vad_mode(self, enabled: bool) -> None:
+        """Switch between VAD hands-free mode and normal PTT mode."""
+        if enabled:
+            self.root.unbind("<KeyPress-space>")
+            self.root.unbind("<KeyRelease-space>")
+            self._ptt_button.unbind("<ButtonPress-1>")
+            self._ptt_button.unbind("<ButtonRelease-1>")
+            self._ptt_button.configure(
+                text="Hands-free mode",
+                fg_color=theme.SUCCESS,
+                state="disabled",
+            )
+        else:
+            self._bind_keys()
+            self._ptt_button.configure(
+                text="Hold Space to Talk",
+                fg_color=theme.ACCENT,
+                state="normal",
+            )
+
     def update(self) -> None:
         """Process pending Tk events (call from async loop)."""
         self.root.update_idletasks()

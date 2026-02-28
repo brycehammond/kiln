@@ -16,6 +16,7 @@ import logging
 from .config import Config
 from .audio.capture import AudioCapture
 from .audio.playback import AudioPlayback
+from .audio.vad import VadCapture
 from .stt.deepgram_stt import DeepgramSTT
 from .tts.cartesia_tts import CartesiaTTS
 from .claude.claude_code import ClaudeCodeClient
@@ -58,6 +59,11 @@ class App:
         self._processing = False
         self._ptt_held = False
 
+        # VAD mode
+        self._vad: VadCapture | None = None
+        if config.input_mode == "vad":
+            self._vad = VadCapture(on_speech=self._process_audio)
+
     # ------------------------------------------------------------------
     # Public
     # ------------------------------------------------------------------
@@ -66,12 +72,20 @@ class App:
         """Start the app and run until the window is closed."""
         self._window.set_connected(True)
 
+        if self._vad is not None:
+            self._window.set_vad_mode(True)
+            self._window.set_status("Listening...")
+            self._vad.start()
+
         try:
             while self._window.is_alive():
                 self._window.update()
                 await asyncio.sleep(UI_POLL_INTERVAL)
         except KeyboardInterrupt:
             pass
+        finally:
+            if self._vad is not None:
+                self._vad.stop()
 
     # ------------------------------------------------------------------
     # Push-to-talk callbacks (called from Tk thread)
@@ -105,6 +119,9 @@ class App:
 
     async def _process_audio(self, audio_bytes: bytes) -> None:
         """Full pipeline: STT -> Claude Code -> TTS."""
+        if self._processing:
+            log.debug("Dropping audio — still processing previous utterance")
+            return
         self._processing = True
         try:
             # Step 1: Transcribe
@@ -112,7 +129,7 @@ class App:
             transcript = await self._stt.transcribe(audio_bytes)
 
             if not transcript:
-                self._window.set_status("Ready")
+                self._window.set_status("Listening..." if self._vad else "Ready")
                 return
 
             self._window.append_transcript("You", transcript)
@@ -126,11 +143,11 @@ class App:
                 self._window.append_transcript("Kiln", result.assistant_text)
                 await self._speak(result.assistant_text)
 
-            self._window.set_status("Ready")
+            self._window.set_status("Listening..." if self._vad else "Ready")
 
         except Exception as exc:
             log.exception("Processing failed")
-            self._window.set_status("Ready")
+            self._window.set_status("Listening..." if self._vad else "Ready")
             self._window.append_transcript("Kiln", f"Something went wrong: {exc}")
         finally:
             self._processing = False

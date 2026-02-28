@@ -18,6 +18,7 @@ class Config(BaseModel):
     claude_path: str = "claude"
     unity_project_path: str = ""
     push_to_talk_key: str = "space"
+    input_mode: str = "ptt"  # "ptt" or "vad"
     tts_voice: str = "default"
 
     @classmethod
