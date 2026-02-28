@@ -1,0 +1,26 @@
+[project]
+name = "kiln-voice"
+version = "0.1.0"
+description = "Voice-controlled Unity development assistant"
+requires-python = ">=3.11"
+dependencies = [
+    "deepgram-sdk>=3.0",
+    "cartesia>=1.0",
+    "sounddevice>=0.5",
+    "numpy>=1.26",
+    "customtkinter>=5.2",
+    "pydantic>=2.0",
+]
+
+[project.scripts]
+kiln-voice = "kiln_voice.main:main"
+
+[project.gui-scripts]
+kiln-voice-gui = "kiln_voice.main:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
