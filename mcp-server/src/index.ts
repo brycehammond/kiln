@@ -15,6 +15,13 @@ import { registerExplainError } from './tools/explainError.js';
 import { registerCreateScript } from './tools/createScript.js';
 import { registerReadScript } from './tools/readScript.js';
 import { registerGetProjectSummary } from './tools/getProjectSummary.js';
+import { registerSave } from './tools/save.js';
+import { registerListSaves } from './tools/listSaves.js';
+import { registerLoadSave } from './tools/loadSave.js';
+import { registerImportAsset } from './tools/importAsset.js';
+import { registerAddPackage } from './tools/addPackage.js';
+import { registerSearchPolyPizza } from './tools/searchPolyPizza.js';
+import { registerSearchSketchfab } from './tools/searchSketchfab.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -36,6 +43,13 @@ async function main(): Promise<void> {
   registerCreateScript(server, connection);
   registerReadScript(server, connection);
   registerGetProjectSummary(server, connection);
+  registerSave(server, connection);
+  registerListSaves(server, connection);
+  registerLoadSave(server, connection);
+  registerImportAsset(server, connection);
+  registerAddPackage(server, connection);
+  registerSearchPolyPizza(server);
+  registerSearchSketchfab(server);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();
