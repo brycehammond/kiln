@@ -57,6 +57,7 @@ namespace Kiln.MCP.Editor
             _router.RegisterTool(new LoadSaveTool());
             _router.RegisterTool(new ImportAssetTool());
             _router.RegisterTool(new AddPackageTool());
+            _router.RegisterTool(new ScreenshotTool());
         }
 
         public void Start()

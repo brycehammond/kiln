@@ -22,6 +22,7 @@ import { registerImportAsset } from './tools/importAsset.js';
 import { registerAddPackage } from './tools/addPackage.js';
 import { registerSearchPolyPizza } from './tools/searchPolyPizza.js';
 import { registerSearchSketchfab } from './tools/searchSketchfab.js';
+import { registerScreenshot } from './tools/screenshot.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -50,6 +51,7 @@ async function main(): Promise<void> {
   registerAddPackage(server, connection);
   registerSearchPolyPizza(server);
   registerSearchSketchfab(server);
+  registerScreenshot(server, connection);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();
