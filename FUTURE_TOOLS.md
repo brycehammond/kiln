@@ -8,9 +8,9 @@
 
 ## Other Ideas
 
-### Scene Building
-- **`delete_gameobject`** — remove objects (with confirmation)
-- **`duplicate_gameobject`** — clone with optional offset
+### ~~Scene Building~~ ✅ Implemented
+- ~~**`delete_gameobject`** — remove objects (with confirmation)~~
+- ~~**`duplicate_gameobject`** — clone with optional offset~~
 
 ### Materials & Visuals
 - **`create_material`** — set shader, color, texture, metallic/smoothness

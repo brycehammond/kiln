@@ -59,6 +59,8 @@ namespace Kiln.MCP.Editor
             _router.RegisterTool(new AddPackageTool());
             _router.RegisterTool(new ScreenshotTool());
             _router.RegisterTool(new ModifyGameObjectTool());
+            _router.RegisterTool(new DeleteGameObjectTool());
+            _router.RegisterTool(new DuplicateGameObjectTool());
         }
 
         public void Start()
