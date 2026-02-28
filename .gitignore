@@ -1,0 +1,12 @@
+# Node
+mcp-server/node_modules/
+mcp-server/build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
