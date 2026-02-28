@@ -2,6 +2,10 @@
 mcp-server/node_modules/
 mcp-server/build/
 
+# Python
+__pycache__/
+*.pyc
+
 # OS
 .DS_Store
 Thumbs.db
