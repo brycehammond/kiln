@@ -23,6 +23,7 @@ import { registerAddPackage } from './tools/addPackage.js';
 import { registerSearchPolyPizza } from './tools/searchPolyPizza.js';
 import { registerSearchSketchfab } from './tools/searchSketchfab.js';
 import { registerScreenshot } from './tools/screenshot.js';
+import { registerModifyGameObject } from './tools/modifyGameObject.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -52,6 +53,7 @@ async function main(): Promise<void> {
   registerSearchPolyPizza(server);
   registerSearchSketchfab(server);
   registerScreenshot(server, connection);
+  registerModifyGameObject(server, connection);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();
