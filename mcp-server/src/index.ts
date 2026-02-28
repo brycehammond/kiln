@@ -19,13 +19,9 @@ import { registerSave } from './tools/save.js';
 import { registerListSaves } from './tools/listSaves.js';
 import { registerLoadSave } from './tools/loadSave.js';
 import { registerImportAsset } from './tools/importAsset.js';
-import { registerAddPackage } from './tools/addPackage.js';
 import { registerSearchPolyPizza } from './tools/searchPolyPizza.js';
 import { registerSearchSketchfab } from './tools/searchSketchfab.js';
 import { registerScreenshot } from './tools/screenshot.js';
-import { registerModifyGameObject } from './tools/modifyGameObject.js';
-import { registerDeleteGameObject } from './tools/deleteGameObject.js';
-import { registerDuplicateGameObject } from './tools/duplicateGameObject.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -51,13 +47,9 @@ async function main(): Promise<void> {
   registerListSaves(server, connection);
   registerLoadSave(server, connection);
   registerImportAsset(server, connection);
-  registerAddPackage(server, connection);
   registerSearchPolyPizza(server);
   registerSearchSketchfab(server);
   registerScreenshot(server, connection);
-  registerModifyGameObject(server, connection);
-  registerDeleteGameObject(server, connection);
-  registerDuplicateGameObject(server, connection);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();

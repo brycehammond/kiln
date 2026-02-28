@@ -12,13 +12,8 @@
 - ~~**`delete_gameobject`** — remove objects (with confirmation)~~
 - ~~**`duplicate_gameobject`** — clone with optional offset~~
 
-### Materials & Visuals
-- **`create_material`** — set shader, color, texture, metallic/smoothness
-- **`apply_material`** — assign a material to an existing object by name
-
 ### Playtesting
 - **`enter_play_mode` / `exit_play_mode`** — let Claude test things in-editor
-- **`read_console`** — pull recent logs/warnings/errors for debugging
 
 ### Script Editing
 - **`edit_script`** — modify an existing script (not just create new ones)
@@ -26,5 +21,9 @@
 ### Scene Navigation
 - **`focus_gameobject`** — frame an object in the Scene view
 
-### Project Management
-- **`list_assets`** — browse Assets/ by folder/type
+---
+
+## Covered by mcp-unity (no kiln version needed)
+- `create_material`, `assign_material`, `modify_material`, `get_material_info`
+- `get_console_logs`, `send_console_log`
+- `unity://assets` resource (browse project assets)
