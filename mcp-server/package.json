@@ -1,7 +1,7 @@
 {
-  "name": "devframework-mcp-server",
+  "name": "kiln-mcp-server",
   "version": "0.1.0",
-  "description": "Custom MCP server for Unity Dev Framework accessibility tools",
+  "description": "Custom MCP server for Kiln — accessible Unity development tools",
   "type": "module",
   "main": "build/index.js",
   "scripts": {

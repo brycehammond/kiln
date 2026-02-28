@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using UnityEditor;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     [InitializeOnLoad]
     public static class MainThreadDispatcher
@@ -25,7 +25,7 @@ namespace DevFramework.MCP.Editor
                 }
                 catch (Exception ex)
                 {
-                    UnityEngine.Debug.LogError($"[DevFramework] MainThread error: {ex}");
+                    UnityEngine.Debug.LogError($"[Kiln] MainThread error: {ex}");
                 }
             }
         }

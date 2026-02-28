@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     public class ExplainErrorTool : ToolBase
     {

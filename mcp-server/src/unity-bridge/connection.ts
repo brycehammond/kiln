@@ -85,7 +85,7 @@ export class UnityConnection {
   sendRequest(method: string, params: Record<string, unknown>): Promise<ToolResult> {
     return new Promise<ToolResult>((resolve, reject) => {
       if (!this.ws || !this.connected) {
-        reject(new Error('Not connected to Unity Editor. Is the Unity project open with the DevFramework package installed?'));
+        reject(new Error('Not connected to Unity Editor. Is the Unity project open with the Kiln package installed?'));
         return;
       }
 

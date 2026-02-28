@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     public class MessageRouter
     {
@@ -13,7 +13,7 @@ namespace DevFramework.MCP.Editor
         public void RegisterTool(ToolBase tool)
         {
             _tools[tool.Name] = tool;
-            Debug.Log($"[DevFramework] Registered tool: {tool.Name}");
+            Debug.Log($"[Kiln] Registered tool: {tool.Name}");
         }
 
         public async Task<string> RouteMessage(string message)
@@ -54,7 +54,7 @@ namespace DevFramework.MCP.Editor
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[DevFramework] Tool '{method}' error: {ex}");
+                Debug.LogError($"[Kiln] Tool '{method}' error: {ex}");
                 return CreateErrorResponse(id, -32000, ex.Message);
             }
         }

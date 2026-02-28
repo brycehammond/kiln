@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     public class DescribeSceneTool : ToolBase
     {

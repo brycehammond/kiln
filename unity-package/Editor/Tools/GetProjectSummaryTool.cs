@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     public class GetProjectSummaryTool : ToolBase
     {

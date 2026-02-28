@@ -1,6 +1,6 @@
 {
-  "name": "com.devframework.mcp.runtime",
-  "rootNamespace": "DevFramework.MCP.Runtime",
+  "name": "com.kiln.mcp.runtime",
+  "rootNamespace": "Kiln.MCP.Runtime",
   "references": [],
   "includePlatforms": [],
   "excludePlatforms": [],

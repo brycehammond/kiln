@@ -1,13 +1,13 @@
 {
-  "name": "com.devframework.mcp",
+  "name": "com.kiln.mcp",
   "version": "0.1.0",
-  "displayName": "Dev Framework MCP",
-  "description": "Accessibility-focused MCP companion for Unity development",
+  "displayName": "Kiln MCP",
+  "description": "Accessible Unity development via natural language through MCP",
   "unity": "2022.3",
   "dependencies": {
     "com.unity.nuget.newtonsoft-json": "3.2.1"
   },
   "author": {
-    "name": "Dev Framework"
+    "name": "Kiln"
   }
 }

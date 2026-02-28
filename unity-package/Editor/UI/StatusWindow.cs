@@ -1,22 +1,22 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     public class StatusWindow : EditorWindow
     {
-        [MenuItem("Window/Dev Framework/Status")]
+        [MenuItem("Window/Kiln/Status")]
         public static void ShowWindow()
         {
-            GetWindow<StatusWindow>("Dev Framework");
+            GetWindow<StatusWindow>("Kiln");
         }
 
         private void OnGUI()
         {
-            GUILayout.Label("Dev Framework MCP", EditorStyles.boldLabel);
+            GUILayout.Label("Kiln MCP", EditorStyles.boldLabel);
             GUILayout.Space(10);
 
-            var server = DevFrameworkServer.Instance;
+            var server = KilnServer.Instance;
 
             // Server status
             EditorGUILayout.BeginHorizontal();

@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     public class CreateGameObjectTool : ToolBase
     {
@@ -123,7 +123,7 @@ namespace DevFramework.MCP.Editor
                         }
                         else
                         {
-                            Debug.LogWarning($"[DevFramework] Component type not found: {typeName}");
+                            Debug.LogWarning($"[Kiln] Component type not found: {typeName}");
                         }
                     }
                 }
@@ -155,7 +155,7 @@ namespace DevFramework.MCP.Editor
             if (ColorUtility.TryParseHtmlString("#" + colorStr, out var parsed2))
                 return parsed2;
 
-            Debug.LogWarning($"[DevFramework] Could not parse color '{colorStr}', defaulting to white");
+            Debug.LogWarning($"[Kiln] Could not parse color '{colorStr}', defaulting to white");
             return Color.white;
         }
 

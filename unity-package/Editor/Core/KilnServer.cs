@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
-namespace DevFramework.MCP.Editor
+namespace Kiln.MCP.Editor
 {
     [InitializeOnLoad]
-    public class DevFrameworkServer
+    public class KilnServer
     {
-        private static DevFrameworkServer _instance;
+        private static KilnServer _instance;
         private HttpListener _httpListener;
         private CancellationTokenSource _cts;
         private readonly MessageRouter _router;
@@ -20,25 +20,25 @@ namespace DevFramework.MCP.Editor
         private const int Port = 8091;
         private const int MaxMessageSize = 1024 * 1024; // 1MB
 
-        public static DevFrameworkServer Instance => _instance;
+        public static KilnServer Instance => _instance;
         public bool IsRunning { get; private set; }
         public bool HasClient => _activeClient?.State == WebSocketState.Open;
 
-        static DevFrameworkServer()
+        static KilnServer()
         {
-            _instance = new DevFrameworkServer();
+            _instance = new KilnServer();
             _instance.Start();
 
             EditorApplication.quitting += () => _instance?.Stop();
             AssemblyReloadEvents.beforeAssemblyReload += () => _instance?.Stop();
             AssemblyReloadEvents.afterAssemblyReload += () =>
             {
-                _instance = new DevFrameworkServer();
+                _instance = new KilnServer();
                 _instance.Start();
             };
         }
 
-        private DevFrameworkServer()
+        private KilnServer()
         {
             _router = new MessageRouter();
             RegisterTools();
@@ -66,12 +66,12 @@ namespace DevFramework.MCP.Editor
                 _httpListener.Start();
                 IsRunning = true;
 
-                Debug.Log($"[DevFramework] WebSocket server started on port {Port}");
+                Debug.Log($"[Kiln] WebSocket server started on port {Port}");
                 _ = AcceptConnectionsAsync(_cts.Token);
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[DevFramework] Failed to start server: {ex.Message}");
+                Debug.LogError($"[Kiln] Failed to start server: {ex.Message}");
                 IsRunning = false;
             }
         }
@@ -94,13 +94,13 @@ namespace DevFramework.MCP.Editor
             }
             catch (Exception ex)
             {
-                Debug.LogWarning($"[DevFramework] Error during shutdown: {ex.Message}");
+                Debug.LogWarning($"[Kiln] Error during shutdown: {ex.Message}");
             }
             finally
             {
                 IsRunning = false;
                 _activeClient = null;
-                Debug.Log("[DevFramework] Server stopped");
+                Debug.Log("[Kiln] Server stopped");
             }
         }
 
@@ -121,7 +121,7 @@ namespace DevFramework.MCP.Editor
 
                     var wsContext = await context.AcceptWebSocketAsync(null);
                     _activeClient = wsContext.WebSocket;
-                    Debug.Log("[DevFramework] MCP client connected");
+                    Debug.Log("[Kiln] MCP client connected");
 
                     await HandleClientAsync(wsContext.WebSocket, ct);
                 }
@@ -130,7 +130,7 @@ namespace DevFramework.MCP.Editor
                 catch (Exception ex)
                 {
                     if (!ct.IsCancellationRequested)
-                        Debug.LogError($"[DevFramework] Connection error: {ex.Message}");
+                        Debug.LogError($"[Kiln] Connection error: {ex.Message}");
                 }
             }
         }
@@ -157,12 +157,12 @@ namespace DevFramework.MCP.Editor
             catch (OperationCanceledException) { }
             catch (Exception ex)
             {
-                Debug.LogError($"[DevFramework] Client handler error: {ex.Message}");
+                Debug.LogError($"[Kiln] Client handler error: {ex.Message}");
             }
             finally
             {
                 _activeClient = null;
-                Debug.Log("[DevFramework] MCP client disconnected");
+                Debug.Log("[Kiln] MCP client disconnected");
             }
         }
 

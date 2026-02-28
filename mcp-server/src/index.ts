@@ -1,5 +1,5 @@
 /**
- * Main entry point for the Unity DevFramework MCP server.
+ * Main entry point for the Kiln MCP server.
  *
  * This Node.js process communicates with Claude Code over stdio (MCP transport)
  * and with the Unity Editor over a WebSocket bridge.
@@ -22,7 +22,7 @@ import { registerGetProjectSummary } from './tools/getProjectSummary.js';
 
 async function main(): Promise<void> {
   const server = new McpServer({
-    name: 'devframework',
+    name: 'kiln',
     version: '0.1.0',
   });
 
@@ -41,7 +41,7 @@ async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
 
-  process.stderr.write('[DevFramework] MCP server running on stdio\n');
+  process.stderr.write('[Kiln] MCP server running on stdio\n');
 }
 
 // ---------------------------------------------------------------------------
@@ -49,7 +49,7 @@ async function main(): Promise<void> {
 // ---------------------------------------------------------------------------
 
 function shutdown(): void {
-  process.stderr.write('[DevFramework] Shutting down...\n');
+  process.stderr.write('[Kiln] Shutting down...\n');
   process.exit(0);
 }
 
@@ -61,6 +61,6 @@ process.on('SIGTERM', shutdown);
 // ---------------------------------------------------------------------------
 
 main().catch((err) => {
-  process.stderr.write(`[DevFramework] Fatal error: ${err}\n`);
+  process.stderr.write(`[Kiln] Fatal error: ${err}\n`);
   process.exit(1);
 });

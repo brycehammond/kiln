@@ -1,6 +1,6 @@
 {
-  "name": "com.devframework.mcp.editor",
-  "rootNamespace": "DevFramework.MCP.Editor",
+  "name": "com.kiln.mcp.editor",
+  "rootNamespace": "Kiln.MCP.Editor",
   "references": [],
   "includePlatforms": ["Editor"],
   "excludePlatforms": [],
