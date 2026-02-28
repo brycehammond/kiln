@@ -12,14 +12,14 @@
 - ~~**`delete_gameobject`** — remove objects (with confirmation)~~
 - ~~**`duplicate_gameobject`** — clone with optional offset~~
 
-### Playtesting
-- **`enter_play_mode` / `exit_play_mode`** — let Claude test things in-editor
+### ~~Playtesting~~ ✅ Implemented
+- ~~**`enter_play_mode` / `exit_play_mode`** — let Claude test things in-editor~~
 
-### Script Editing
-- **`edit_script`** — modify an existing script (not just create new ones)
+### ~~Script Editing~~ ✅ Implemented
+- ~~**`edit_script`** — modify an existing script (not just create new ones)~~
 
-### Scene Navigation
-- **`focus_gameobject`** — frame an object in the Scene view
+### ~~Scene Navigation~~ ✅ Implemented
+- ~~**`focus_gameobject`** — frame an object in the Scene view~~
 
 ---
 

@@ -22,6 +22,9 @@ import { registerImportAsset } from './tools/importAsset.js';
 import { registerSearchPolyPizza } from './tools/searchPolyPizza.js';
 import { registerSearchSketchfab } from './tools/searchSketchfab.js';
 import { registerScreenshot } from './tools/screenshot.js';
+import { registerPlayMode } from './tools/playMode.js';
+import { registerEditScript } from './tools/editScript.js';
+import { registerFocusGameObject } from './tools/focusGameObject.js';
 
 // ---------------------------------------------------------------------------
 // Bootstrap
@@ -50,6 +53,9 @@ async function main(): Promise<void> {
   registerSearchPolyPizza(server);
   registerSearchSketchfab(server);
   registerScreenshot(server, connection);
+  registerPlayMode(server, connection);
+  registerEditScript(server, connection);
+  registerFocusGameObject(server, connection);
 
   // Start the MCP stdio transport.
   const transport = new StdioServerTransport();
